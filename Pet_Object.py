@@ -78,6 +78,14 @@ class Pet_GUI:
         self.pet.set_age(str(age))
 
     # def for get_name(), get_animal_type(), get_age()
+    def print(self):
+        name= self.pet.get_name()
+        animal_type=self.pet.get_animal_type()
+        age=self.pet.get_age()
+        self.pet.name_results_entry.insert(0, str(name))
+        self.pet.animal_type_results_entry .insert(0, str(animal_type))
+        self.pet.age_results_entry.insert(0, str(age))
+
 
 #starts the event loop of the GUI application
 root = tkinter.Tk()
