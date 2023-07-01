@@ -54,27 +54,34 @@ class Test_Fan:
         
         #Custom size for window
         root.geometry("400x600")
+
+        #calls def for changing background color
+        self.apply_rainbow_colors(root)
+        
         #starts the event loop of the GUI application
         root.mainloop()
 
-        #creates list for color for rainbow
-        self.colors = ["red", "orange", "yellow", "green", "blue", "purple"]
-        #sets current color
-        self.current_color_index = 0
-
-        #calls def for changing background color
-        self.change_background_color()
 
     #def for changing background color
-    def change_background_color(self):
-        # configure the background color of the root window 
-        self.root.configure(bg=self.colors[self.current_color_index])
+    def apply_rainbow_colors(self, root):
+        #creates list for color for rainbow
+        colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+        #define variable current color
+        current_color_index = 0
 
-        #update the current_color_index variable in a cyclic manner
-        self.current_color_index = (self.current_color_index + 1) % len(self.colors)
+        def change_background_color():
+            #calls nonlocal variable
+            nonlocal current_color_index
 
-        #scheduling the execution of the self.change_background_color function after delay
-        self.root.after(1000, self.change_background_color)
+            # configure the background color of the root window 
+            root.configure(bg=colors[current_color_index])
+
+            #update the current_color_index variable in a cyclic manner
+            current_color_index = (current_color_index + 1) % len(colors)
+
+            #scheduling the execution of the self.change_background_color function after delay
+            root.after(1000, change_background_color)
+        change_background_color()
 
 #Executes code within main
 if __name__ == '__main__':
