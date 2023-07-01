@@ -16,7 +16,25 @@ class Car_Object:
         self.root.title("Output Window")
 
     #def create car object
-        #accelerates and display speed 5 times
-        #decelerates and display speed 5 times
+    def main(self):
+         # Create a Car object
+        car = Car(2023, "Tesla")
 
+        #accelerates and display speed 5 times
+        for _ in range(5):
+            car.accelerate()
+            accelerate_label=Label("Car accelerates \n"+"Current speed:"+ str(car.get_speed()))
+            accelerate_label.pack()
+            
+        #decelerates and display speed 5 times
+        for _ in range(5):
+            car.brake()
+            decelerate_label=Label("Car decelerates using brakes \n"+"Current speed:"+ str(car.get_speed()))
+            decelerate_label.pack()
+        self.root.mainloop()
     #def that creates rainbow window background
+
+#Executes code within main
+if __name__ == '__main__':
+    window = Car_Object()
+    window.main()
