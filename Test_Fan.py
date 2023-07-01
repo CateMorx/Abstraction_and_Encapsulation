@@ -19,7 +19,7 @@ class Test_Fan:
         #duplicates fan 1
         fan2 = fan1
 
-        #Calls mutator instead of directly assigning attributes
+        #Calls setter for all attributes
         fan2.set_speed(Fan.MEDIUM)
         fan2.set_radius(5)
         fan2.set_color('blue')
