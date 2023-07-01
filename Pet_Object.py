@@ -39,6 +39,29 @@ class Pet_GUI:
         self.pet.age_button= tkinter.Button(GUI, text="Enter", command=self.age_enter)
         self.pet.age_button.pack(pady=10)
 
+        #Button to print and display results
+        self.pet.print = tkinter.Button(GUI, text="Print", command=self.print)
+        self.pet.print.pack(pady=10)
+
+
+        #Label and textbox for name
+        self.pet.name_results_label = tkinter.Label(GUI, text="Name:")
+        self.pet.name_results_label.pack(pady=5)
+        self.pet.name_results_entry = tkinter.Entry(GUI)
+        self.pet.name_results_entry.pack(pady=5)
+
+        #Label and textbox for animal
+        self.pet.animal_type_results_label = tkinter.Label(GUI, text="Animal Type:")
+        self.pet.animal_type_results_label.pack(pady=5)
+        self.pet.animal_type_results_entry = tkinter.Entry(GUI)
+        self.pet.animal_type_results_entry.pack(pady=5)
+
+        #Label and textbox for age
+        self.pet.age_results_label = tkinter.Label(GUI, text="Age:")
+        self.pet.age_results_label.pack(pady=5)
+        self.pet.age_results_entry = tkinter.Entry(GUI)
+        self.pet.age_results_entry.pack(pady=5)
+
     # def for set_name()
     def name_enter(self):
         name = self.pet.name_entry.get()
@@ -53,5 +76,11 @@ class Pet_GUI:
     def age_enter(self):
         age = self.pet.age_entry.get()
         self.pet.set_age(str(age))
-        
+
     # def for get_name(), get_animal_type(), get_age()
+
+#starts the event loop of the GUI application
+root = tkinter.Tk()
+root.title("Pet Class")
+pet_gui = Pet_GUI(pet, root)
+root.mainloop()
