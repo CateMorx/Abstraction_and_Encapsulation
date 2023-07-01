@@ -74,8 +74,18 @@ class Pet_GUI:
 
     # def for set_animal_type()
     def animal_type_enter(self):
-        animal_type = self.pet.animal_type_entry.get()
-        self.pet.set_animal_type(str(animal_type))
+        try:
+            animal_type = self.pet.animal_type_entry.get()
+            if not animal_type:
+                messagebox.showinfo("Error", "Please enter an Animal Type")
+                return
+            if not animal_type.isalpha():
+                raise ValueError
+                return
+            else:
+                self.pet.set_animal_type(str(animal_type))
+        except ValueError:
+            messagebox.showerror("ValueError", "Animal Type should only contain alphabetic characters")
 
     # def for set_age()
     def age_enter(self):
