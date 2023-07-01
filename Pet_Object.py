@@ -89,8 +89,21 @@ class Pet_GUI:
 
     # def for set_age()
     def age_enter(self):
-        age = self.pet.age_entry.get()
-        self.pet.set_age(str(age))
+        try:
+            age = self.pet.age_entry.get()
+            if not age:
+                messagebox.showinfo("Error", "Please enter the Age")
+                return
+            if not age.isdigit():
+                raise ValueError
+                return
+            if int(age)<1:
+                raise ValueError
+                return
+            else:
+                self.pet.set_age(str(age))
+        except ValueError:
+            messagebox.showerror("ValueError", "Age must be an integer")
 
     # def for get_name(), get_animal_type(), get_age()
     def print(self):
