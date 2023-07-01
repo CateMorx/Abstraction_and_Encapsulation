@@ -4,7 +4,12 @@
 #The class should also have the following methods: accelerate(), brake(), get_speed()
 
 #Class Car
-#Constructor with year model, make, and speed
-#def for accelerate
-#def for brake
-#def for get speed
+class Car:
+    #Constructor with year model, make, and speed
+    def __init__(self, year_model, make):
+        self.__year_model = year_model
+        self.__make = make
+        self.__speed = 0    
+    #def for accelerate
+    #def for brake
+    #def for get speed
