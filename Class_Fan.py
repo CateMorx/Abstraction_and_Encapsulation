@@ -10,7 +10,11 @@ class Fan():
     MEDIUM = 2
     FAST = 3
 # A constructor that creates a fan with the speed (default SLOW), radius (default 5), color (default blue), and on (default False)
-
+    def __init__(self, speed=SLOW, radius=5, color='blue', on=False):
+        self.__speed = speed
+        self.__on = on
+        self.__radius = radius
+        self.__color = color
 #accessor and mutator for speed
 #accessor and mutator for on
 #accessor and mutator for radius
