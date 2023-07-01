@@ -6,7 +6,7 @@
 
 #imports necessary elements
 from Car_Class import Car
-from tkinter import Tk, Text
+from tkinter import Tk, Text, font
 
 #Class for Car_Object
 class Car_Object:
@@ -16,12 +16,16 @@ class Car_Object:
         self.root = Tk()
         self.root.title("Speed Display")
 
+        #Custom font
+        custom_font = font.Font(family="Arial", size=12, weight="bold")
+
         #creates text widget for GUI
-        self.text = Text(self.root)
+        self.text = Text(self.root,font=custom_font)
         self.text.pack()
 
     #def that shows output in GUI
     def show_output(self, output):
+        
         #Appends each item in output list to be shown in text widget
         for item in output:
             self.text.insert("end", str(item) + "\n")
