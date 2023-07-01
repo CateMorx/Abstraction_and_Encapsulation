@@ -6,6 +6,7 @@
 #imports necessary elements
 from Pet_Class import Pet
 import tkinter as tkinter
+from tkinter import messagebox
 
 pet=Pet()
 #Class Pet
@@ -65,7 +66,11 @@ class Pet_GUI:
     # def for set_name()
     def name_enter(self):
         name = self.pet.name_entry.get()
-        self.pet.set_name(str(name))
+        if not name:
+            messagebox.showinfo("Error", "Please enter a Name")
+            return
+        else:
+            self.pet.set_name(str(name))
 
     # def for set_animal_type()
     def animal_type_enter(self):
