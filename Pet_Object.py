@@ -96,10 +96,8 @@ class Pet_GUI:
                 return
             if not age.isdigit():
                 raise ValueError
-                return
             if int(age)<1:
                 raise ValueError
-                return
             else:
                 self.pet.set_age(str(age))
         except ValueError:
@@ -107,6 +105,12 @@ class Pet_GUI:
 
     # def for get_name(), get_animal_type(), get_age()
     def print(self):
+        self.pet.name_entry.delete(0, tkinter.END)
+        self.pet.animal_type_entry.delete(0, tkinter.END)
+        self.pet.age_entry.delete(0, tkinter.END)
+        self.pet.name_results_entry.delete(0, tkinter.END)
+        self.pet.animal_type_results_entry.delete(0, tkinter.END)
+        self.pet.age_results_entry.delete(0, tkinter.END)
         name= self.pet.get_name()
         animal_type=self.pet.get_animal_type()
         age=self.pet.get_age()
