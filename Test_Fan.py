@@ -21,19 +21,19 @@ class Test_Fan:
         fan2.set_on(False)
         self.create_gui(fan2, "Fan 2 properties:")
 #def GUI
-    def create_gui(self, title):
+    def create_gui(self, fan, title):
         root = Tk()
         root.title(title)
-        speed_label = Label(root,text="Speed: " + str(self.get_speed()))
+        speed_label = Label(root,text="Speed: " + str(fan.get_speed()))
         speed_label.pack()
 
-        radius_label = Label(root,text="Radius: " + str(self.get_radius()))
+        radius_label = Label(root,text="Radius: " + str(fan.get_radius()))
         radius_label.pack()
 
-        color_label = Label(root,text="Color: " + str(self.get_color()))
+        color_label = Label(root,text="Color: " + str(fan.get_color()))
         color_label.pack()
 
-        on_label = Label(root,text="On: " + str(self.is_on()))
+        on_label = Label(root,text="On: " + str(fan.is_on()))
         on_label.pack()
         
         #starts the event loop of the GUI application
