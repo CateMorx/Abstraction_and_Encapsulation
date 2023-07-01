@@ -55,7 +55,7 @@ class Car_Object:
         self.root.mainloop()
 
     #def for changing background color
-    def apply_rainbow_colors(self, root, labels):
+    def apply_rainbow_colors(self):
         #creates list for color for rainbow
         colors = ["red", "orange", "yellow", "green", "blue", "purple"]
         #define variable current color
@@ -69,17 +69,16 @@ class Car_Object:
             color = colors[current_color_index]
 
             #configures window background color
-            root.configure(bg=color)
+            self.root.configure(bg=color)
 
-            #changes the color of the background of label text along with the window background
-            for label in labels:
-                label.configure(highlightbackground=color)
-                label.config(bg=color)
+            self.text.configure(highlightbackground=color)
+            self.text.config(bg=color)
+
             #update the current_color_index variable in a cyclic manner
             current_color_index = (current_color_index + 1) % len(colors)
 
             #scheduling the execution of the self.change_background_color function after delay
-            root.after(1000, change_background_color)
+            self.root.after(1000, change_background_color)
         change_background_color()
 
 #Executes code within main
