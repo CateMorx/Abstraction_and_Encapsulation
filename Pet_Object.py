@@ -38,8 +38,20 @@ class Pet_GUI:
         self.pet.age_entry.pack(pady=5)
         self.pet.age_button= tkinter.Button(GUI, text="Enter", command=self.age_enter)
         self.pet.age_button.pack(pady=10)
-        
+
     # def for set_name()
+    def name_enter(self):
+        name = self.pet.name_entry.get()
+        self.pet.set_name(str(name))
+
     # def for set_animal_type()
+    def animal_type_enter(self):
+        animal_type = self.pet.animal_type_entry.get()
+        self.pet.set_animal_type(str(animal_type))
+
     # def for set_age()
+    def age_enter(self):
+        age = self.pet.age_entry.get()
+        self.pet.set_age(str(age))
+        
     # def for get_name(), get_animal_type(), get_age()
