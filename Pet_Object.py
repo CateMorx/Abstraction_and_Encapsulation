@@ -63,6 +63,9 @@ class Pet_GUI:
         self.pet.age_results_entry = tkinter.Entry(GUI)
         self.pet.age_results_entry.pack(pady=5)
 
+        self.name_input=0
+        self.animal_type_input=0
+        self.age_input=0
     # def for set_name()
     def name_enter(self):
         name = self.pet.name_entry.get()
@@ -71,6 +74,7 @@ class Pet_GUI:
             return
         else:
             self.pet.set_name(str(name))
+            self.name_input=1
 
     # def for set_animal_type()
     def animal_type_enter(self):
@@ -84,6 +88,7 @@ class Pet_GUI:
                 return
             else:
                 self.pet.set_animal_type(str(animal_type))
+                self.animal_type_input=1
         except ValueError:
             messagebox.showerror("ValueError", "Animal Type should only contain alphabetic characters")
 
@@ -100,23 +105,31 @@ class Pet_GUI:
                 raise ValueError
             else:
                 self.pet.set_age(str(age))
+                self.age_input=1
         except ValueError:
             messagebox.showerror("ValueError", "Age must be an integer")
 
     # def for get_name(), get_animal_type(), get_age()
     def print(self):
-        self.pet.name_entry.delete(0, tkinter.END)
-        self.pet.animal_type_entry.delete(0, tkinter.END)
-        self.pet.age_entry.delete(0, tkinter.END)
-        self.pet.name_results_entry.delete(0, tkinter.END)
-        self.pet.animal_type_results_entry.delete(0, tkinter.END)
-        self.pet.age_results_entry.delete(0, tkinter.END)
-        name= self.pet.get_name()
-        animal_type=self.pet.get_animal_type()
-        age=self.pet.get_age()
-        self.pet.name_results_entry.insert(0, str(name))
-        self.pet.animal_type_results_entry .insert(0, str(animal_type))
-        self.pet.age_results_entry.insert(0, str(age))
+        if self.name_input==0 or self.animal_type_input==0 or self.age_input==0:
+            messagebox.showinfo("Error", "Please Enter the Name, Animal Type, and Age of Your Pet first")
+            return
+        else:
+            self.pet.name_entry.delete(0, tkinter.END)
+            self.pet.animal_type_entry.delete(0, tkinter.END)
+            self.pet.age_entry.delete(0, tkinter.END)
+            self.pet.name_results_entry.delete(0, tkinter.END)
+            self.pet.animal_type_results_entry.delete(0, tkinter.END)
+            self.pet.age_results_entry.delete(0, tkinter.END)
+            name= self.pet.get_name()
+            animal_type=self.pet.get_animal_type()
+            age=self.pet.get_age()
+            self.pet.name_results_entry.insert(0, str(name))
+            self.pet.animal_type_results_entry .insert(0, str(animal_type))
+            self.pet.age_results_entry.insert(0, str(age))
+            self.name_input=0
+            self.animal_type_input=0
+            self.age_input=0
 
 
 #starts the event loop of the GUI application
