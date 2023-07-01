@@ -13,24 +13,24 @@ class Car_Object:
     #GUI constructor
     def __init__(self):
         self.root = Tk()
-        self.root.title("Output Window")
+        self.root.title("Speed Display")
 
     #def create car object
     def main(self):
          # Create a Car object
         car = Car(2023, "Tesla")
+        output = []
 
         #accelerates and display speed 5 times
         for _ in range(5):
             car.accelerate()
-            accelerate_label=Label("Car accelerates \n"+"Current speed:"+ str(car.get_speed()))
-            accelerate_label.pack()
+            output.append("Car accelerates \n"+"Current speed:"+ str(car.get_speed()))
             
         #decelerates and display speed 5 times
         for _ in range(5):
             car.brake()
-            decelerate_label=Label("Car decelerates using brakes \n"+"Current speed:"+ str(car.get_speed()))
-            decelerate_label.pack()
+            output.append("Car decelerates using brakes \n"+"Current speed:"+ str(car.get_speed()))
+
         self.root.mainloop()
     #def that creates rainbow window background
 
