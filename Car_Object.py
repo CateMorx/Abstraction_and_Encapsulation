@@ -25,6 +25,7 @@ class Car_Object:
         #Appends each item in output list to be shown in text widget
         for item in output:
             self.text.insert("end", str(item) + "\n")
+        self.apply_rainbow_colors()
 
     #def create car object
     def main(self):
@@ -48,12 +49,38 @@ class Car_Object:
             #appends lines of text output into output list
             output.append("Car decelerates using brakes \n"+"Current speed:"+ str(car.get_speed()))
 
-        #calls function tha shows output
+        #calls function that shows output
         self.show_output(output)
         #starts the event loop of the GUI application
         self.root.mainloop()
 
-    #def that creates rainbow window background
+    #def for changing background color
+    def apply_rainbow_colors(self, root, labels):
+        #creates list for color for rainbow
+        colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+        #define variable current color
+        current_color_index = 0
+
+        def change_background_color():
+            #calls nonlocal variable
+            nonlocal current_color_index
+
+            #assigns value of current_color_index element from colors list to color.
+            color = colors[current_color_index]
+
+            #configures window background color
+            root.configure(bg=color)
+
+            #changes the color of the background of label text along with the window background
+            for label in labels:
+                label.configure(highlightbackground=color)
+                label.config(bg=color)
+            #update the current_color_index variable in a cyclic manner
+            current_color_index = (current_color_index + 1) % len(colors)
+
+            #scheduling the execution of the self.change_background_color function after delay
+            root.after(1000, change_background_color)
+        change_background_color()
 
 #Executes code within main
 if __name__ == '__main__':
