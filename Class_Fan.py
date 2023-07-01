@@ -27,5 +27,11 @@ class Fan():
 
     def set_on(self, on):
         self.__on = on
+
 #accessor and mutator for radius
+    def get_radius(self):
+        return self.__radius
+
+    def set_radius(self, radius):
+        self.__radius = radius
 #accessor and mutator for color
