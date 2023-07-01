@@ -12,7 +12,13 @@ class Test_Fan:
 #def for assigning values for fan 1 & 2
     def main(self):
         fan1 = Fan(speed=Fan.FAST, radius=10, color='yellow', on=True)
-        fan2 = Fan(speed=Fan.MEDIUM, radius=5, color='blue', on=False)
+
+        fan2 = fan1
+        fan2.set_speed(Fan.MEDIUM)
+        fan2.set_radius(5)
+        fan2.set_color('blue')
+        fan2.set_on(False)
+        self.create_gui(fan2, "Fan 2 properties:")
 #def GUI
     def create_gui(self, title):
         root = Tk()
@@ -29,5 +35,10 @@ class Test_Fan:
         on_label = Label(root,text="On: " + str(self.is_on()))
         on_label.pack()
         
+        #starts the event loop of the GUI application
         root.mainloop()
-#starts the event loop of the GUI application
+
+#Executes code within main
+if __name__ == '__main__':
+    window = Test_Fan()
+    window.main()
