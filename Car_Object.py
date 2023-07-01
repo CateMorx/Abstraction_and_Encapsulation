@@ -6,7 +6,7 @@
 
 #imports necessary elements
 from Car_Class import Car
-from tkinter import Tk, Label
+from tkinter import Tk, Text
 
 #Class for Car_Object
 class Car_Object:
@@ -14,6 +14,13 @@ class Car_Object:
     def __init__(self):
         self.root = Tk()
         self.root.title("Speed Display")
+
+        self.text = Text(self.root)
+        self.text.pack()
+
+    def show_output(self, output):
+        for item in output:
+            self.text.insert("end", str(item) + "\n")
 
     #def create car object
     def main(self):
@@ -30,7 +37,7 @@ class Car_Object:
         for _ in range(5):
             car.brake()
             output.append("Car decelerates using brakes \n"+"Current speed:"+ str(car.get_speed()))
-
+        self.show_output(output)
         self.root.mainloop()
     #def that creates rainbow window background
 
