@@ -56,14 +56,14 @@ class Test_Fan:
         root.geometry("400x600")
 
         #calls def for changing background color
-        self.apply_rainbow_colors(root)
-        
+        self.apply_rainbow_colors(root,[speed_label, radius_label, color_label, on_label])
+
         #starts the event loop of the GUI application
         root.mainloop()
 
 
     #def for changing background color
-    def apply_rainbow_colors(self, root):
+    def apply_rainbow_colors(self, root, labels):
         #creates list for color for rainbow
         colors = ["red", "orange", "yellow", "green", "blue", "purple"]
         #define variable current color
@@ -73,9 +73,16 @@ class Test_Fan:
             #calls nonlocal variable
             nonlocal current_color_index
 
-            # configure the background color of the root window 
-            root.configure(bg=colors[current_color_index])
+            #assigns value of current_color_index element from colors list to color.
+            color = colors[current_color_index]
 
+            #configures window background color
+            root.configure(bg=color)
+
+            #changes the color of the background of label text along with the window background
+            for label in labels:
+                label.configure(highlightbackground=color)
+                label.config(bg=color)
             #update the current_color_index variable in a cyclic manner
             current_color_index = (current_color_index + 1) % len(colors)
 
