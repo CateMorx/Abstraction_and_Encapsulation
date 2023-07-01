@@ -22,5 +22,10 @@ class Fan():
     def set_speed(self, speed):
         self.__speed = speed
 #accessor and mutator for on
+    def is_on(self):
+        return self.__on
+
+    def set_on(self, on):
+        self.__on = on
 #accessor and mutator for radius
 #accessor and mutator for color
