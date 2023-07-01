@@ -12,6 +12,7 @@ class Test_Fan:
 #def for assigning values for fan 1 & 2
     def main(self):
         fan1 = Fan(speed=Fan.FAST, radius=10, color='yellow', on=True)
+        self.create_gui(fan1, "Fan 1 properties:")
 
         fan2 = fan1
         fan2.set_speed(Fan.MEDIUM)
