@@ -5,37 +5,55 @@
 
 #Imports necessarry elements
 from Class_Fan import Fan
-from tkinter import Tk, Label
+from tkinter import Tk, Label, font
 
 #Class TestFan
 class Test_Fan:
 #def for assigning values for fan 1 & 2
     def main(self):
         fan1 = Fan(speed=Fan.FAST, radius=10, color='yellow', on=True)
+
+        #calls gui for fan1
         self.create_gui(fan1, "Fan 1 properties:")
 
+        #duplicates fan 1
         fan2 = fan1
+
+        #Calls mutator instead of directly assigning attributes
         fan2.set_speed(Fan.MEDIUM)
         fan2.set_radius(5)
         fan2.set_color('blue')
         fan2.set_on(False)
+
+        #calls gui for fan2
         self.create_gui(fan2, "Fan 2 properties:")
+        
 #def GUI
     def create_gui(self, fan, title):
         root = Tk()
         root.title(title)
-        speed_label = Label(root,text="Speed: " + str(fan.get_speed()))
+
+        #Custom font
+        custom_font = font.Font(family="Arial", size=24, weight="bold")
+
+        #Label for speed
+        speed_label = Label(root,text="Speed: " + str(fan.get_speed()),font=custom_font)
         speed_label.pack()
 
-        radius_label = Label(root,text="Radius: " + str(fan.get_radius()))
+        #Label for radius
+        radius_label = Label(root,text="Radius: " + str(fan.get_radius()),font=custom_font)
         radius_label.pack()
 
-        color_label = Label(root,text="Color: " + str(fan.get_color()))
+        #Label for color
+        color_label = Label(root,text="Color: " + str(fan.get_color()),font=custom_font)
         color_label.pack()
 
-        on_label = Label(root,text="On: " + str(fan.is_on()))
+        #Label for on
+        on_label = Label(root,text="On: " + str(fan.is_on()),font=custom_font)
         on_label.pack()
         
+        #Custom size for window
+        root.geometry("400x600")
         #starts the event loop of the GUI application
         root.mainloop()
 
