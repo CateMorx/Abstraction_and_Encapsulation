@@ -27,7 +27,7 @@ class Test_Fan:
 
         #calls gui for fan2
         self.create_gui(fan2, "Fan 2 properties:")
-        
+
 #def GUI
     def create_gui(self, fan, title):
         root = Tk()
@@ -56,6 +56,25 @@ class Test_Fan:
         root.geometry("400x600")
         #starts the event loop of the GUI application
         root.mainloop()
+
+        #creates list for color for rainbow
+        self.colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+        #sets current color
+        self.current_color_index = 0
+
+        #calls def for changing background color
+        self.change_background_color()
+
+    #def for changing background color
+    def change_background_color(self):
+        # configure the background color of the root window 
+        self.root.configure(bg=self.colors[self.current_color_index])
+
+        #update the current_color_index variable in a cyclic manner
+        self.current_color_index = (self.current_color_index + 1) % len(self.colors)
+
+        #scheduling the execution of the self.change_background_color function after delay
+        self.root.after(1000, self.change_background_color)
 
 #Executes code within main
 if __name__ == '__main__':
