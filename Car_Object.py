@@ -14,7 +14,6 @@ class Car_Object:
     def __init__(self):
         #creates window for GUI
         self.root = Tk()
-        self.root.title("Speed Display")
 
         #Custom font
         custom_font = font.Font(family="Arial", size=12, weight="bold")
@@ -55,6 +54,9 @@ class Car_Object:
 
         #calls function that shows output
         self.show_output(output)
+
+        self.root.title("Year model: " + str(car._Car__year_model) + " Make of Car: " + car._Car__make)  # Set window title
+
         #starts the event loop of the GUI application
         self.root.mainloop()
 
