@@ -93,6 +93,7 @@ class Pet_GUI:
                 return
             #shows error message if input is not alphabetic characters
             if not animal_type.isalpha():
+                self.pet.animal_type_entry.delete(0, tkinter.END)
                 raise ValueError
                 return
             else:
@@ -114,9 +115,11 @@ class Pet_GUI:
                 return
             #shows error message if input is not number
             if not age.isdigit():
+                self.pet.age_entry.delete(0, tkinter.END)
                 raise ValueError
             #shows error message if input is less than 1
             if int(age)<1:
+                self.pet.age_entry.delete(0, tkinter.END)
                 raise ValueError
             else:
                 #sets age from entry
